@@ -2,5 +2,7 @@
   <p>
     <strong>Title:</strong>
     <%= article.title %>
+    <strong>Date:</strong>
+    <%= I18n.l(article.created_at, format: :only_date) %>
   </p>
 </div>
