@@ -3,7 +3,7 @@
 module Administrate
   class ArticlesController < ApplicationController
     before_action :authenticate_admin!
-    before_action :set_article, only: [:show, :edit, :update, :destroy, :destroy_cover_image]
+    before_action :set_article, only: [:show, :edit, :update, :destroy, :y]
 
     layout "administrate"
 
@@ -64,7 +64,7 @@ module Administrate
       end
     end
 
-    def destroy_cover_image
+    def y
       @article.cover_image.purge
 
       respond_to do |format|

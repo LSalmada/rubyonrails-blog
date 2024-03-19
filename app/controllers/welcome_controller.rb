@@ -2,6 +2,6 @@
 
 class WelcomeController < ApplicationController
   def index
-    @articles = Article.all
+    @articles = Article.all.order(updated_at: :desc).limit(9)
   end
 end

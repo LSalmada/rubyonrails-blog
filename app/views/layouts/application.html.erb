@@ -1,17 +1,36 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>RubyonrailsclubBlog</title>
-    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatibl  e" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ruby on Rails Club - Home</title>
+
+    <!-- Favicon -->
+    <%= favicon_link_tag asset_path("favicon.ico") %>
+
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Merriweather+Sans:wght@300;400;600;800&display=swap"
+      rel="stylesheet">
 
     <%= stylesheet_link_tag "application", "data-turbo-track": "reload" %>
     <%= javascript_importmap_tags %>
   </head>
 
   <body>
-    <h1> Public Panel </h1>
+    <%= render 'layouts/shared/application/header' %>
     <%= yield %>
+    <%= render 'layouts/shared/application/footer' %>
+
+
+    <%= javascript_include_tag "menu" , "data-turbo-track": "reload"%>
+    <%= javascript_include_tag "posts-grid" , "data-turbo-track": "reload"%>
+    <%= javascript_include_tag "jquery/jquery1.min" , "data-turbo-track": "reload"%>
+    <%= javascript_include_tag "slick/slick.min" , "data-turbo-track": "reload"%>
   </body>
 </html>
