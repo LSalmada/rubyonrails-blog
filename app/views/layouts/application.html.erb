@@ -17,7 +17,7 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Merriweather+Sans:wght@300;400;600;800&display=swap"
       rel="stylesheet">
-
+    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/toastify-js/src/toastify.min.css">
     <%= stylesheet_link_tag "application", "data-turbo-track": "reload" %>
     <%= javascript_importmap_tags %>
   </head>
@@ -32,5 +32,17 @@
     <%= javascript_include_tag "posts-grid" , "data-turbo-track": "reload"%>
     <%= javascript_include_tag "jquery/jquery1.min" , "data-turbo-track": "reload"%>
     <%= javascript_include_tag "slick/slick.min" , "data-turbo-track": "reload"%>
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/toastify-js"></script>
+    <% if notice %>
+      <script>
+        Toastify({
+          text: "<%= notice %>",
+          duration: 3000,
+          style: {
+            background: "green",
+          }
+        }).showToast();
+      </script>
+    <% end %>
   </body>
 </html>
