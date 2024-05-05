@@ -57,10 +57,18 @@ module Administrate
 
     # DELETE /categories/1 or /categories/1.json
     def destroy
-      @category.destroy!
-
       respond_to do |format|
-        format.html { redirect_to(administrate_categories_url, notice: "Category was successfully destroyed.") }
+        format.html do
+          if @category.articles.count > 0
+            redirect_to(
+              administrate_categories_url,
+              alert: "Existing articles are using this category. Please remove them first.",
+            )
+          else
+            @category.destroy!
+            redirect_to(administrate_categories_url, alert: "Category was successfully destroyed.")
+          end
+        end
         format.json { head(:no_content) }
       end
     end
