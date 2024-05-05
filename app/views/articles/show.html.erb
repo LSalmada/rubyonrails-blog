@@ -18,8 +18,12 @@
 				<div class="share-post">
 					<div class="share-post-title">Compartilhar artigo</div>
 					<div class="socials">
-						<a href="#"><%= image_tag "icons/red/facebook.svg", alt:"facebook" %> </a>
-						<a href="#"><%= image_tag "icons/red/twitter.svg", alt: "twitter" %></a>
+					<%= link_to "https://www.facebook.com/sharer/sharer.php?u=#{article_url(@article)}" do %>
+						<%= image_tag "icons/red/facebook.svg", alt:"facebook" %>
+					<% end %>
+					<%= link_to "https://twitter.com/intent/tweet?text=u=#{@article.title}&url=#{article_url(@article)}" do %>
+						<%= image_tag "icons/red/twitter.svg", alt: "twitter" %>
+					<% end %>
 					</div>
 				</div>
 			</div>
@@ -197,18 +201,12 @@
 				</a>
 				<div class="post-detail-other-posts">
 					<div class="other-posts-title">Outras publicações</div>
-					<a href="#" class="post-resume">
-            <%= image_tag 'posts/post1.jpg', class:"post-resume-image" %>
-						<h4 class="post-resume-title">Ruby on Rails 6 completo, do básico ao avançado</h4>
-					</a>
-					<a href="#" class="post-resume">
-            <%= image_tag "posts/post2.jpg", class:"post-resume-image" %>
-						<h4 class="post-resume-title">Aprenda os melhores comandos para terminal</h4>
-					</a>
-					<a href="#" class="post-resume">
-            <%= image_tag "posts/post3.jpg", class:"post-resume-image" %>
-						<h4 class="post-resume-title">Melhores práticas para desenvolvimento web</h4>
-					</a>
+					<% @other_articles.each do |other_article| %>
+						<a href="#" class="post-resume">
+							<%= image_tag(cover_image_fallback(other_article, :thumb), class:"post-resume-image", alt: other_article.title) %>
+							<h4 class="post-resume-title"><%= other_article.title %></h4>
+						</a>
+					<% end %>
 				</div>
 				<a href="#" class="post-content-ad">
           <%= image_tag "ad/post-content-footer-ad.jpg", alt: "footer-ad" %>
