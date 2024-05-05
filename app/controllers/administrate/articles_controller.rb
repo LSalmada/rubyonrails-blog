@@ -3,6 +3,7 @@
 module Administrate
   class ArticlesController < AdministrateController
     before_action :set_article, only: [:show, :edit, :update, :destroy, :y]
+    before_action :set_category, only: [:show, :edit, :new]
 
     # GET /articles or /articles.json
     def index
@@ -71,6 +72,10 @@ module Administrate
 
     private
 
+    def set_category
+      @categories = Category.all
+    end
+
     # Use callbacks to share common setup or constraints between actions.
     def set_article
       @article = Article.friendly.find(params[:id])
@@ -78,7 +83,7 @@ module Administrate
 
     # Only allow a list of trusted parameters through.
     def article_params
-      params.require(:article).permit(:title, :body, :cover_image)
+      params.require(:article).permit(:title, :body, :cover_image, :category_id)
     end
   end
 end
