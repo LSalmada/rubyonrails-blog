@@ -4,6 +4,7 @@ Rails.application.routes.draw do
   devise_for :users
   devise_for :admins
   get "welcome/index"
+
   namespace :administrate do
     get "/" => "dashboards#index"
     resources :articles do
@@ -11,6 +12,8 @@ Rails.application.routes.draw do
         delete :destroy_cover_image
       end
     end
+
+    resources :categories
   end
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
 
