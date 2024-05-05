@@ -9,13 +9,17 @@
 #   ["Action", "Comedy", "Drama", "Horror"].each do |genre_name|
 #     MovieGenre.find_or_create_by!(name: genre_name)
 #   end
-admins = ["admin@admin.com", "test@test.com"]
+admins = {
+  "admin@admin.com" => "Administrator",
+  "test@test.com" => "Test User",
+}
 
-admins.each do |email|
+admins.each do |email, name|
   next if Admin.find_by(email: email)
 
   Admin.create!(
     email:, # o equivalente a email: email
+    name:,
     password: ENV["DEFAULT_PASSWORD"],
     password_confirmation: ENV["DEFAULT_PASSWORD"],
   )
