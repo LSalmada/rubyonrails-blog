@@ -73,20 +73,6 @@ module Administrate
       end
     end
 
-    # def y
-    #   @article.cover_image.purge
-
-    #   respond_to do |format|
-    #     format.turbo_stream { render(turbo_stream: turbo_stream.remove(@article)) }
-    #   end
-    # end
-
-    # private
-
-    # def set_category
-    #   @categories = Category.all
-    # end
-
     # Use callbacks to share common setup or constraints between actions.
     def set_category
       @category = Category.find(params[:id])

@@ -1,0 +1,21 @@
+<tr>
+  <td><%= author.name %></td>
+  <td>
+    <div class="icons">
+
+      <%= link_to edit_administrate_author_path(author), title:"Editar", alt:"edit" do %>
+        <%= image_tag 'icons/gray/edit.svg' %>
+      <% end %>
+
+      <%= link_to [:administrate, author], title: "Mostrar", alt:"eye" do %>
+        <%= image_tag 'icons/gray/eye.svg' %>
+      <% end %>
+
+      <%= button_to [:administrate, author], title: "Deletar", alt: "close", class:"button-transparent", data: { turbo: false }, method: :delete, alt:"close" do %>
+        <%= image_tag 'icons/gray/close.svg' %>
+      <% end %>
+
+    </div>
+  </td>
+</tr>
+
