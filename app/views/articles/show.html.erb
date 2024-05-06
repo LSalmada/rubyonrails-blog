@@ -35,7 +35,7 @@
 			<div class="primary-content">
 				<div class="author">
 					<div class="image-container">
-            <%= image_tag "author/jackson.jpg" %>
+            <%= image_tag(avatar_image_fallback(@article.author) , alt: @article.author.name) %>
 					</div>
 					<div class="text-container">
 						<div class="label">Autor</div>
@@ -54,7 +54,6 @@
 		</div>
 	</section>
 
-
 	<section class="section post-detail-default-section post-content-section">
 		<div class="container">
 			<div class="primary-content">
@@ -63,7 +62,7 @@
 				</div>
 				<div class="post-detail-author-bio">
 					<div class="image">
-						<%= image_tag "author/jackson2.jpg", alt: "jackson2" %>
+						<%= image_tag(avatar_image_fallback(@article.author) , alt: @article.author.name) %>
 						<div class="text-mobile">
 							<div class="label">sobre o autor</div>
 							<div class="author-name"><%= @article.author.name %></div>
