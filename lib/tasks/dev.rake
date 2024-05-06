@@ -37,7 +37,7 @@ namespace :dev do
     5.times do
       Author.create!(
         name: Faker::Name.name,
-        description: Faker::Lorem.paragraph(sentence_count: rand(5..10)),
+        description: Faker::Lorem.paragraph(sentence_count: rand(15..30)),
         facebook_profile_url: Faker::Internet.url(host: "facebook.com"),
         instagram_profile_url: Faker::Internet.url(host: "instagran.com"),
         twitter_profile_url: Faker::Internet.url(host: "twitter.com"),
