@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.1].define(version: 2024_05_05_225050) do
+ActiveRecord::Schema[7.1].define(version: 2024_05_20_204030) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "pgcrypto"
   enable_extension "plpgsql"
@@ -85,6 +85,7 @@ ActiveRecord::Schema[7.1].define(version: 2024_05_05_225050) do
     t.string "name"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.text "description"
   end
 
   create_table "friendly_id_slugs", force: :cascade do |t|

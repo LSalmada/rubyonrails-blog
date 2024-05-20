@@ -28,8 +28,20 @@ namespace :dev do
   end
 
   def add_categories
-    ["Ruby Rails", "Linux", "WSL", "SQL"].each do |name|
-      Category.create!(name: name)
+    ["Ruby on Rails", "Linux", "WSL", "SQL", "DevOps", "Cloud", "Marketing", "React"].each do |name|
+      category = Category.create!(
+        name: name,
+        description: Faker::Lorem.paragraph(sentence_count: rand(2..5)),
+      )
+
+      image_id = rand(1..8)
+
+      category.cover_image.attach(
+        io: File.open(
+          Rails.root.join("lib/tasks/images/category#{image_id}.jpg"),
+        ),
+        filename: "category_avatar_#{image_id}.jpg",
+      )
     end
   end
 
