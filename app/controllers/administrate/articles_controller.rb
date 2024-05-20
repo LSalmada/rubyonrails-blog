@@ -2,7 +2,7 @@
 
 module Administrate
   class ArticlesController < AdministrateController
-    before_action :set_article, only: [:show, :edit, :update, :destroy, :y]
+    before_action :set_article, only: [:show, :edit, :update, :destroy, :destroy_cover_image]
     before_action :set_category, only: [:show, :edit, :new]
 
     # GET /articles or /articles.json
@@ -62,7 +62,7 @@ module Administrate
       end
     end
 
-    def y
+    def destroy_cover_image
       @article.cover_image.purge
 
       respond_to do |format|
