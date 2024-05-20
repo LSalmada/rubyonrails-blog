@@ -2,7 +2,7 @@
   <%= image_tag(cover_image_fallback(article) , class: "item-image", alt:"post 1") %>
 
     <div class="item-row">
-      <div class="item-category">Backend</div>
+      <div class="item-category"><%= article.category.name %></div>
       <div class="item-comments">25</div>
     </div>
 
@@ -11,7 +11,7 @@
     </div>
 
     <div class="item-row">
-      <div class="item-author">Jackson Pires</div>
-      <div class="item-date">15 de set</div>
+      <div class="item-author"><%= article.author.name %></div>
+      <div class="item-date"><%= l(article.created_at, format: :short_date) %></div>
     </div>
 <% end %>
