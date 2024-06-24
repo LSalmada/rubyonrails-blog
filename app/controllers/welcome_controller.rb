@@ -2,7 +2,7 @@
 
 class WelcomeController < ApplicationController
   def index
-    @articles = Article.includes(:category, :author).all.order(updated_at: :desc).limit(10)
+    @articles = Article.all.order(updated_at: :desc).limit(10)
     @categories = Category.all.limit(8)
   end
 end
