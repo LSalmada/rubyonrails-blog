@@ -1,5 +1,5 @@
 <%= link_to article_path(article), class:"item" do  %>
-   <%#= image_tag(cover_image_fallback(article) , class: "item-image", alt:"post 1") %>
+  <%= image_tag(cover_image_fallback(article) , class: "item-image", alt:"post 1") %>
 
     <div class="item-row">
       <div class="item-category"><%= article.category.name %></div>
