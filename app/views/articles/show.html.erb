@@ -98,10 +98,9 @@
 						<div class="comment-title">Comentários</div>
 						<div class="comment-actions">
 							<div class="label">ordenar por: </div>
-							<select class="select clean small">
-								<option value="1">Últimos comentários</option>
-								<option value="2">Mais recentes</option>
-							</select>
+							<%= form_with(url: article_url(@article), method: :get) do |form| %>
+								<%= form.select :sort_by, options_for_select([["Mais recentes", "most_recent"], ["Últimos comentários", "last_comments"]], params[:sort_by]), {} , {class: "select clean small", onchange:"this.form.submit()"} %>
+							<% end %>
 						</div>
 					</div>
 					<div class="comment-form-container">
@@ -111,7 +110,7 @@
 						<% end %>
 					</div>
 					<div class="post-detail-comments-list">
-					<% @article.comments.order(:created_at).each do |comment|%>
+					<% @comments.each do |comment|%>
 					<%= next if comment.new_record? %>
 						<div class="post-detail-comment-item">
 							<div class="author-row">
