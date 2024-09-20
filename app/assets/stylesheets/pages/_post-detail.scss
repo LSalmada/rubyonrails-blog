@@ -499,6 +499,11 @@
     gap: 12px;
   }
 
+  .post-detail-comment form {
+    width: 100%;
+    text-align: right;
+  }
+
   .post-detail-comments-list {
     display: flex;
     flex-direction: column;
