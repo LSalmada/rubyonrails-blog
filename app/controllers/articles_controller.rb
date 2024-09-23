@@ -10,7 +10,6 @@ class ArticlesController < ApplicationController
   private
 
   def comments_sorted
-    puts ">>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>"
     puts params[:sort_by]
     return @article.comments.order(created_at: :desc) if params[:sort_by] == "most_recent"
 
