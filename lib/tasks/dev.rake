@@ -117,7 +117,7 @@ namespace :dev do
         user: User.all.sample,
         article: Article.all.sample,
         body: Faker::Lorem.paragraph(sentence_count: rand(5..10)),
-        created_at: Faker::Date.between(from: 1.year.ago, to: Date.current)
+        created_at: Faker::Date.between(from: 1.year.ago, to: Date.current),
       )
     end
   end

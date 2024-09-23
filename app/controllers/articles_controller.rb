@@ -2,7 +2,7 @@
 
 class ArticlesController < ApplicationController
   def show
-    @article = Article.includes(:category, :author, comments: :user ).friendly.find(params[:id])
+    @article = Article.includes(:category, :author, comments: :user).friendly.find(params[:id])
     @other_articles = Article.all.sample(3)
     @comments = comments_sorted
   end
@@ -10,7 +10,7 @@ class ArticlesController < ApplicationController
   private
 
   def comments_sorted
-    puts params[:sort_by]
+    Rails.logger.debug(params[:sort_by])
     return @article.comments.order(created_at: :desc) if params[:sort_by] == "most_recent"
 
     @article.comments.order(created_at: :asc)

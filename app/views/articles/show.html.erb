@@ -127,11 +127,16 @@
 							<div class="description-row">
 								<p><%= comment.body %></p>
 							</div>
-							<div class="actions-row">
-								<a href="#" class="like">6</a>
-								<a href="#" class="deslike">4</a>
-								<a href="#" class="share"></a>
-							</div>
+              <div class="actions-row">
+                <%= button_to like_article_comment_path(@article, comment), class:"like", form: { turbo: false } do %>
+                  <%= comment.like %>
+                <% end %>
+
+                <%= button_to dislike_article_comment_path(@article, comment), class:"deslike", form: { turbo: false } do %>
+                  <%= comment.dislike %>
+                <% end %>
+
+              </div>
 						</div>
 					<% end %>
 					</div>

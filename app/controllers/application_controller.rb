@@ -5,6 +5,7 @@ class ApplicationController < ActionController::Base
   before_action :set_footer_data
 
   private
+
   # Its important that the location is NOT stored if:
   # - The request method is not GET (non idempotent)
   # - The request is handled by a Devise controller such as Devise::SessionsController as that could cause an
@@ -24,11 +25,12 @@ class ApplicationController < ActionController::Base
   end
 
   def after_sign_out_path_for(resource_or_scope)
-    request.referrer if resource_or_scope == :user
+    request.referer if resource_or_scope == :user
   end
 
   def set_footer_data
-    return if params[:controller].split('/').first == 'administrate'
+    return if params[:controller].split("/").first == "administrate"
+
     @footer_categories_1 = Category.all.order(created_at: :asc).limit(4)
     @footer_categories_2 = Category.all.order(created_at: :desc).limit(4)
 
