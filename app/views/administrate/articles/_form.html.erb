@@ -34,7 +34,7 @@
     </div>
 
     <div id=<%= dom_id(article) %>>
-      <%= image_tag article.cover_image.variant(:thumb) if article.cover_image.attached? %>
+      <%= image_tag article.cover_image if article.cover_image.attached? %>
 
       <%=
         link_to "Remover",
